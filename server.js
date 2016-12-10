@@ -33,6 +33,8 @@ function generateAnswer(assistant) {
   }
 
  function checkGuess(assistant) {
+      console.log("BAR TEST: " + assistant.data.foo);
+      assistant.data.foo = "bar";
       console.log('checkGuess');
       console.log('getRawInput(): ' + assistant.getRawInput());
       let answer = assistant.data.answer;
