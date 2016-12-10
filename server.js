@@ -13,6 +13,7 @@ app.use(bodyParser.json({type: 'application/json'}));
 
 const GENERATE_ANSWER_ACTION = 'generate_answer';
 const CHECK_GUESS_ACTION = 'check_guess';
+const START_NEW_CHAT_ACTION = 'start_new_chat';
 
 app.post('/', function (request, response) {
   console.log('headers: ' + JSON.stringify(request.headers));
