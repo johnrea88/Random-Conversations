@@ -6,10 +6,13 @@ process.env.DEBUG = 'actions-on-google:*';
 let Assistant = require('actions-on-google').ApiAiAssistant;
 let express = require('express');
 let bodyParser = require('body-parser');
+let Database = require('./data-models').Database;
 
 let app = express();
 app.set('port', (process.env.PORT || 8080));
 app.use(bodyParser.json({type: 'application/json'}));
+
+let db = new Database();
 
 const START_NEW_CHAT_ACTION = 'start_new_chat';
 const CHECK_FOR_MESSAGES_ACTION = 'check_for_messages';
@@ -18,7 +21,7 @@ const END_CONVERSATION_ACTION = 'end_conversation';
 const READ_BACK_CHAT_HISTORY_ACTION = 'read_back_chat_history';
 
 
-app.get('/', function (request, response){
+app.get('/', function (request, response) {
   response.writeHead(200, {"Content-Type": "text/plain"});
   response.end("Penpal is reinventing the way you think about communication. Coming soon.\n");
 });
@@ -37,9 +40,6 @@ app.post('/', function (request, response) {
     console.log('startNewChat');
     let message = assistant.getArgument('message');
     let name = assistant.getArgument('name');
-    console.log('message: ' + message);
-    console.log('name: ' + name);
-    console.log('getRawInput: ' + assistant.getRawInput());
     assistant.tell('Your chat is being setup. Check back in a few minutes for new messages');
   }
 });
