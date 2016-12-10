@@ -33,6 +33,7 @@ function generateAnswer(assistant) {
 
  function checkGuess(assistant) {
       console.log('checkGuess');
+      console.log('getRawInput(): ' + assistant.getRawInput());
       let answer = assistant.data.answer;
       let guess = parseInt(assistant.getArgument('guess'));
       if (answer > guess) {
