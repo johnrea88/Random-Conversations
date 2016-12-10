@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   Database: function () {
     return new DataContainer();
@@ -16,7 +18,7 @@ var User = function(googleUserId, name) {
   self.googleUserId = googleUserId;
   self.name = name;
   self.dateCreated = new Date();
-  self.lastUpdated = new Date(); 
+  self.lastUpdated = new Date();
 };
 
 var Conversation = function(initiatingUserId) {
