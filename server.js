@@ -45,9 +45,18 @@ function generateAnswer(assistant) {
       }
   }
 
+  function startNewChat(assistant){
+    console.log('startNewChat');
+    let message = assistant.getArgument('message');
+    console.log('message: ' + message);
+    console.log('name: ' + name);
+    assistant.tell('Your chat is being setup. Check back in a few minutes for new messages');
+  }
+
   let actionMap = new Map();
   actionMap.set(GENERATE_ANSWER_ACTION, generateAnswer);
   actionMap.set(CHECK_GUESS_ACTION, checkGuess);
+  actionMap.set(START_NEW_CHAT_ACTION, startNewChat);
 
   assistant.handleRequest(actionMap);
 });
