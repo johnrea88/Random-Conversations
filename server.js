@@ -52,6 +52,7 @@ function generateAnswer(assistant) {
     let name = assistant.getArgument('name');
     console.log('message: ' + message);
     console.log('name: ' + name);
+    console.log('getRawInput: ' + assistant.getRawInput());
     assistant.tell('Your chat is being setup. Check back in a few minutes for new messages');
   }
 
