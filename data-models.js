@@ -73,9 +73,10 @@ var DataContainer = function() {
   self.messages = [];
 
   self.getOrStoreUser = function(googleUserId, name) {
-    self.users.forEach(function(user) {
+    for(let i = 0; i < self.users.length; i ++) {
+      let user = self.users[i];
       if(user.googleUserId === googleUserId) return user;
-    });
+    }
     var newUser = new User(googleUserId, name);
     self.users.push(newUser);
     return newUser;
