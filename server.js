@@ -41,7 +41,9 @@ app.post('/', function (request, response) {
     console.log('startNewChat');
     let message = assistant.getArgument('message');
     let name = assistant.getArgument('name');
-    assistant.tell('Your chat is being setup. Check back in a few minutes for new messages');
+    let userId = assistant.getUser().user_id;
+    db.startNewConversation(name, message, userId);
+    assistant.tell('Ok, I\'ll send your message over now! Check back in a few minutes!');
   }
 });
 
