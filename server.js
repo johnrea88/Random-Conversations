@@ -44,6 +44,10 @@ app.post('/', function (request, response) {
     let name = assistant.getArgument('name');
     let googleUserId = assistant.getUser().user_id;
     db.createUser(googleUserId, name);
+    collectMessageHelper(assistant);
+  };
+
+  function collectMessageHelper(assistant) {
     assistant.setContext('collect_message', 1);
     assistant.ask('While I work on finding you a new pen pal, let me get the first message you\'d like to send to your new friend.', ['What message would you like to send?']);
   };
@@ -60,6 +64,11 @@ app.post('/', function (request, response) {
     }
 
     let message = assistant.getArgument('message');
+    if(!message) {
+      collectMessageHelper(assistant);
+      return;
+    }
+
     db.startNewConversation(user, message);
     assistant.tell('Ok, I\'m working on sending your message. Check back in a few minutes for new replies!');
   }
