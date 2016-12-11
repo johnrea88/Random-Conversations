@@ -103,11 +103,11 @@ app.post('/', function (request, response) {
     message.markAsRead();
     let sentFromUserId = message.authoringUserId;
     let sentFromUser = db.getUserByUserId(sentFromUserId);
-    let questionForUser = "Would you like to reply? <break time="250ms"/> Or how about end the conversation?";
-    let message = `${prefixText} Your pal ${sentFromUser.name} said: <break time="500ms"/> ${message.text} <break time="500ms"/> ${questionForUser}`;
+    let questionForUser = 'Would you like to reply? <break time="250ms"/> Or how about end the conversation?';
+    let nextMessageText = `${prefixText} Your pal ${sentFromUser.name} said: <break time="500ms"/> ${message.text} <break time="500ms"/> ${questionForUser}`;
     assistant.setContext('finished_reading_message', 1);
     assistant.data.currentMessageId = message.id;
-    assistant.ask(message);
+    assistant.ask(nextMessageText);
   };
 
   function collectNameFromUser(assistant) {
