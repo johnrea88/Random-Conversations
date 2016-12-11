@@ -87,6 +87,16 @@ var DataContainer = function() {
     return user;
   };
 
+  self.hasSentAMessage = function(googleUserId) {
+    let user = self.getUserByGoogleUserId(googleUserId);
+    if(!user) return false;
+    for(let i = 0; i < self.messages.length; i++) {
+      let message = self.messages[i];
+      if(message.authoringUserId === user.id) return true;
+    }
+    return false;
+  };
+
   self.activeConversationExists = function(userId1, userId2) {
     for(let i = 0; i < self.conversations.length; i++) {
       let conversation = self.conversations[i];
