@@ -22,6 +22,7 @@ const READ_BACK_CHAT_HISTORY_ACTION = 'read_back_chat_history';
 
 
 app.get('/', function (request, response) {
+  db.dbDump();
   response.writeHead(200, {"Content-Type": "text/plain"});
   response.end("Penpal is reinventing the way you think about communication. Coming soon.\n");
 });
