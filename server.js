@@ -95,8 +95,8 @@ app.post('/', function (request, response) {
       assistant.tell(`${prefixText} <break time="500ms"/> You have no more new messages.`);
       return;
     }
-    let prefixText = `${prefixText} <break time="500ms"/> Here is your next message: <break time="500ms"/>`;
-    readMessage(assistant, unreadMessages[0], prefixText);
+    let nextPrefixText = `${prefixText} <break time="500ms"/> Here is your next message: <break time="500ms"/>`;
+    readMessage(assistant, unreadMessages[0], nextPrefixText);
   };
 
   function readMessage(assistant, message, prefixText) {
