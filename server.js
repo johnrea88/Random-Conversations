@@ -43,7 +43,7 @@ app.post('/', function (request, response) {
     let name = assistant.getArgument('name');
     let userId = assistant.getUser().user_id;
     db.startNewConversation(name, message, userId);
-    assistant.tell('Ok, I\'ll send your message over now! Check back in a few minutes!');
+    assistant.tell('Ok, I\'m working on sending your message. Check back in a few minutes for new replies!');
   }
 });
 

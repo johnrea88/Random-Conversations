@@ -56,6 +56,7 @@ var Message = function(text, authoringUserId, conversationId) {
   self.authoringUserId = authoringUserId;
   self.conversationId = conversationId;
   self.status = 'UNREAD';
+  self.text = text;
 
   self.markAsRead = function() {
     self.status = 'READ';
