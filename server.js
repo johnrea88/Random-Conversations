@@ -49,7 +49,8 @@ app.post('/', function (request, response) {
     let googleUserId = assistant.getUser().user_id;
     let hasSentMessage = db.hasSentAMessage(googleUserId);
     if(!hasSentMessage) {
-      assistant.tell('It looks like you haven\'t sent a message yet. You\'ll need to send a message before you can receive a reply.');
+      // TODO: Tell the user they need to send a message before they can receive a reply
+      assistant.tell('You have no new messages.');
       return;
     }
     let user = db.getUserByGoogleUserId(googleUserId);
