@@ -78,7 +78,7 @@ var DataContainer = function() {
     });
     var newUser = new User(googleUserId, name);
     self.users.push(newUser);
-    return user;
+    return newUser;
   };
 
   self.activeConversationExists = function(userId1, userId2) {
