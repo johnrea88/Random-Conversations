@@ -73,14 +73,18 @@ var DataContainer = function() {
   self.conversations = [];
   self.messages = [];
 
-  self.getOrStoreUser = function(googleUserId, name) {
+  self.getUserByGoogleUserId = function(googleUserId) {
     for(let i = 0; i < self.users.length; i++) {
       let user = self.users[i];
       if(user.googleUserId === googleUserId) return user;
     }
-    var newUser = new User(googleUserId, name);
-    self.users.push(newUser);
-    return newUser;
+    return null;
+  };
+
+  self.createUser = function(googleUserId, name) {
+    let user = new User(googleUserId, name);
+    self.users.push(user);
+    return user;
   };
 
   self.activeConversationExists = function(userId1, userId2) {
@@ -134,8 +138,7 @@ var DataContainer = function() {
     conversation.endConversation();
   };
 
-  self.startNewConversation = function(name, text, googleUserId) {
-    let user = self.getOrStoreUser(googleUserId, name);
+  self.startNewConversation = function(user, text) {
     let unmatchedConversations = self.getUnmatchedConversations(user.id);
     for(let i = 0; i < unmatchedConversations.length; i++) {
       let unmatchedConversation = unmatchedConversations[i];
