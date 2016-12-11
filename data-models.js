@@ -186,11 +186,12 @@ var DataContainer = function() {
     let unreadMessages = [];
     let allConversations = self.getConversationsByUserId(userId);
     allConversations.forEach(function(conversation) {
-      if (!conversation.isActive()) continue;
-      let allMessages = self.getAllMessagesByConversationId(conversation.id);
-      allMessages.forEach(function(message) {
-        if(message.isUnread()) unreadMessages.push(message);
-      });
+      if (conversation.isActive()) {
+        let allMessages = self.getAllMessagesByConversationId(conversation.id);
+        allMessages.forEach(function(message) {
+          if(message.isUnread()) unreadMessages.push(message);
+        });
+      }
     });
     return unreadMessages;
   };
