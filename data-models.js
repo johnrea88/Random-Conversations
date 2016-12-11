@@ -182,6 +182,12 @@ var DataContainer = function() {
     return conversations;
   };
 
+  self.dbDump = function() {
+    console.log('users:\n' + JSON.stringify(self.users));
+    console.log('\n\nconversations:\n' + JSON.stringify(self.conversations));
+    console.log('\n\nmessages:\n' + JSON.stringify(self.messages));
+  };
+
   self.getUnreadMessages = function(userId) {
     let unreadMessages = [];
     let allConversations = self.getConversationsByUserId(userId);
