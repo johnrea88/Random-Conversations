@@ -93,7 +93,7 @@ var DataContainer = function() {
   self.getUnmatchedConversations = function(userId) {
     let conversations = [];
     self.conversations.forEach(function(conversation) {
-      if(conversation.respondingUserId === null && conversation.initiatingUserId !== user) {
+      if(conversation.respondingUserId === null && conversation.initiatingUserId !== userId) {
         conversations.push(conversation);
       }
     });
