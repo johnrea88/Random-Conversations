@@ -73,7 +73,7 @@ var DataContainer = function() {
   self.messages = [];
 
   self.getOrStoreUser = function(googleUserId, name) {
-    for(let i = 0; i < self.users.length; i ++) {
+    for(let i = 0; i < self.users.length; i++) {
       let user = self.users[i];
       if(user.googleUserId === googleUserId) return user;
     }
@@ -83,11 +83,12 @@ var DataContainer = function() {
   };
 
   self.activeConversationExists = function(userId1, userId2) {
-    self.conversations.forEach(function(conversation) {
+    for(let i = 0; i < self.conversations.length; i++) {
+      let conversation = self.conversations[i];
       if(conversation.isBetweenUsers(userId1, userId2) && conversation.isActive()) {
         return true;
       }
-    });
+    }
     return false;
   };
 
@@ -113,9 +114,10 @@ var DataContainer = function() {
   };
 
   self.getConversationIdByMessageId = function(messageId) {
-    self.messages.forEach(function(message) {
+    for(let i = 0; i < self.messages.length; i++) {
+      let message = self.messages[i];
       if(message.id === messageId) return message.conversationId;
-    });
+    }
     return null;
   };
 
@@ -134,14 +136,15 @@ var DataContainer = function() {
   self.startNewConversation = function(name, text, googleUserId) {
     let user = self.getOrStoreUser(googleUserId, name);
     let unmatchedConversations = self.getUnmatchedConversations(user.id);
-    unmatchedConversations.forEach(function(unmatchedConversation) {
+    for(let i = 0; i < unmatchedConversations.length; i++) {
+      let unmatchedConversation = unmatchedConversations[i];
       if(!self.activeConversationExists(user.id, unmatchedConversation.initiatingUserId)) {
         unmatchedConversation.respondingUserId = user.id;
         let message = new Message(text, user.id, unmatchedConversation.id);
         self.messages.push(message);
         return;
       }
-    });
+    }
     let conversation = new Conversation(user.id);
     self.conversations.push(conversation);
     let message = new Message(text, user.id, conversation.id);
@@ -155,16 +158,18 @@ var DataContainer = function() {
   };
 
   self.getUserByUserId = function(userId) {
-    self.users.forEach(function(user){
+    for(let i = i; i < self.users; i++) {
+      let user = self.users[i];
       if(user.id === userId) return user;
-    });
+    }
     return null;
   };
 
   self.getConversationByConversationId = function(conversationId) {
-    self.conversations.forEach(function(conversation) {
+    for(let i = 0; i < self.conversations; i++) {
+      let conversation = self.conversations[i];
       if(conversation.id === conversations) return conversation;
-    });
+    }
     return null;
   };
 
