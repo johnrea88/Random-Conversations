@@ -44,6 +44,7 @@ app.post('/', function (request, response) {
   actionMap.set(END_CONVERSATION_ACTION, endConversation);
   assistant.handleRequest(actionMap);
 
+
   function checkForNewMessages(assistant) {
     console.log('checkForNewMessages');
     let googleUserId = assistant.getUser().user_id;
