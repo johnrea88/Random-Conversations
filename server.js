@@ -60,7 +60,11 @@ app.post('/', function (request, response) {
       assistant.tell('You have no new messages.');
       return;
     }
-    let prefixText = `You have ${unreadMessages.length} new messages.`;
+    let messageCopy = 'messages';
+    if(unreadMessages.length === 1) {
+      messageCopy = 'message';
+    }
+    let prefixText = `You have ${unreadMessages.length} new ${messageCopy}.`;
     readMessage(assistant, unreadMessages[0], prefixText);
   };
 
