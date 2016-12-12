@@ -165,10 +165,29 @@ var DataContainer = function() {
     self.messages.push(message);
   };
 
+  self.getUnreadMessageInConversation = function(authoringUserId, conversationId) {
+    for(let i = 0; i < self.messages.length; i++) {
+      let message = self.messages[i];
+      if(message.authoringUserId === authoringUserId && message.conversationId === conversationId && message.isUnread()) {
+        return message;
+      }
+    }
+    return null;
+  };
+
   self.replyToMessage = function(replyingUserId, replyText, messageIdToReplyTo) {
+    //if the replyingUser has previously sent a message on this thread that is UNREAD,
+    //append 'reply' text to that message instead of create a new message
     let conversationId = self.getConversationIdByMessageId(messageIdToReplyTo);
-    let message = new Message(replyText, replyingUserId, conversationId);
-    self.messages.push(message);
+    let previousUnreadMessage = self.getUnreadMessageInConversation(replyingUserId, conversationId);
+    if (previousUnreadMessage) {
+      let currentText = previousUnreadMessage.text;
+      previousUnreadMessage.text = `${currentText}. ${replyText}`;
+      previousUnreadMessage.lastUpdated = new Date();
+    } else {
+      let message = new Message(replyText, replyingUserId, conversationId);
+      self.messages.push(message);
+    }
   };
 
   self.getUserByUserId = function(userId) {
