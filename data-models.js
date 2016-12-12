@@ -172,7 +172,7 @@ var DataContainer = function() {
   };
 
   self.getUserByUserId = function(userId) {
-    for(let i = i; i < self.users; i++) {
+    for(let i = 0; i < self.users.length; i++) {
       let user = self.users[i];
       if(user.id === userId) return user;
     }
