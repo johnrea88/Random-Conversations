@@ -79,7 +79,7 @@ app.post('/', function (request, response) {
     let user = db.getUserByGoogleUserId(googleUserId);
     db.replyToMessage(user.id, messageText, messageId);
     assistant.data.currentMessageId = null;
-    handleNextMessage(assistant, 'Great, I\'ve sent your reply.', user);
+    handleNextMessage(assistant, 'Great. I\'ve sent your reply.', user);
   };
 
   function endConversation(assistant) {
