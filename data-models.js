@@ -215,7 +215,7 @@ var DataContainer = function() {
       if (conversation.isActive()) {
         let allMessages = self.getAllMessagesByConversationId(conversation.id);
         allMessages.forEach(function(message) {
-          if(message.isUnread()) unreadMessages.push(message);
+          if(message.isUnread() && message.authoringUserId !== userId) unreadMessages.push(message);
         });
       }
     });
