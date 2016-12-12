@@ -46,8 +46,6 @@ app.post('/', function (request, response) {
 
 
   function checkForNewMessages(assistant) {
-    assistant.ask('please.................. tell... me... your.................. name. This: is a test and this................... is a test.');
-    return;
     console.log('checkForNewMessages');
     let googleUserId = assistant.getUser().user_id;
     let hasSentMessage = db.hasSentAMessage(googleUserId);
