@@ -60,7 +60,7 @@ app.post('/', function (request, response) {
       assistant.tell('You have no new messages.');
       return;
     }
-    let prefixText = `You have ${unreadMessages.length} new messages. <break time="500ms"/>`;
+    let prefixText = `You have ${unreadMessages.length} new messages.`;
     readMessage(assistant, unreadMessages[0], prefixText);
   };
 
@@ -94,10 +94,10 @@ app.post('/', function (request, response) {
   function handleNextMessage(assistant, prefixText, user) {
     let unreadMessages = db.getUnreadMessages(user.id);
     if(unreadMessages.length === 0) {
-      assistant.tell(`${prefixText} <break time="500ms"/> You have no more new messages.`);
+      assistant.tell(`${prefixText} You have no more new messages.`);
       return;
     }
-    let nextPrefixText = `${prefixText} <break time="500ms"/> Here is your next message: <break time="500ms"/>`;
+    let nextPrefixText = `${prefixText} Here is your next message.`;
     readMessage(assistant, unreadMessages[0], nextPrefixText);
   };
 
@@ -105,8 +105,8 @@ app.post('/', function (request, response) {
     message.markAsRead();
     let sentFromUserId = message.authoringUserId;
     let sentFromUser = db.getUserByUserId(sentFromUserId);
-    let questionForUser = 'Would you like to reply? <break time="250ms"/> Or how about end the conversation?';
-    let nextMessageText = `${prefixText} Your pal ${sentFromUser.name} said: <break time="500ms"/> ${message.text} <break time="500ms"/> ${questionForUser}`;
+    let questionForUser = 'Would you like to reply? Or how about end the conversation.';
+    let nextMessageText = `${prefixText} Your pal ${sentFromUser.name} said. ${message.text}. ${questionForUser}`;
     assistant.setContext('finished_reading_message', 1);
     assistant.data.currentMessageId = message.id;
     assistant.ask(nextMessageText);
