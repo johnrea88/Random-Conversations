@@ -166,7 +166,7 @@ var DataContainer = function() {
   };
 
   self.replyToMessage = function(replyingUserId, replyText, messageIdToReplyTo) {
-    let conversationId = self.getConversationIdByMessageId(messageId);
+    let conversationId = self.getConversationIdByMessageId(messageIdToReplyTo);
     let message = new Message(replyText, replyingUserId, conversationId);
     self.messages.push(message);
   };
