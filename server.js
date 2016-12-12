@@ -46,7 +46,7 @@ app.post('/', function (request, response) {
 
 
   function checkForNewMessages(assistant) {
-    assistant.ask('please... tell... me... your... name');
+    assistant.ask('please.................. tell... me... your.................. name');
     return;
     console.log('checkForNewMessages');
     let googleUserId = assistant.getUser().user_id;
