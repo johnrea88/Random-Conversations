@@ -201,7 +201,7 @@ var DataContainer = function() {
   self.getConversationByConversationId = function(conversationId) {
     for(let i = 0; i < self.conversations.length; i++) {
       let conversation = self.conversations[i];
-      if(conversation.id === conversations) return conversation;
+      if(conversation.id === conversationId) return conversation;
     }
     return null;
   };
