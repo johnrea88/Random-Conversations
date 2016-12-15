@@ -10,6 +10,7 @@ let Database = require('./data-models').Database;
 
 let app = express();
 app.set('port', (process.env.PORT || 8080));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json({type: 'application/json'}));
 
 let db = new Database();
@@ -23,10 +24,13 @@ const SUBMIT_MESSAGE_REPLY_ACTION = 'submit_message_reply';
 const END_CONVERSATION_ACTION = 'end_conversation';
 
 
+function sendHtmlFile(response, fileName) {
+  response.sendFile(__dirname + '/html/' + fileName);
+};
+
 app.get('/', function (request, response) {
   db.dbDump();
-  response.writeHead(200, {"Content-Type": "text/plain"});
-  response.end("Penpal is reinventing the way you think about communication. Coming soon.\n");
+  sendHtmlFile(response, 'index.html');
 });
 
 
