@@ -33,6 +33,17 @@ app.get('/', function (request, response) {
   sendHtmlFile(response, 'index.html');
 });
 
+app.get('/privacy-policy', function (request, response) {
+  sendHtmlFile(response, 'privacy.html');
+});
+
+app.get('/terms-of-service', function (request, response) {
+  sendHtmlFile(response, 'terms.html');
+});
+
+app.get('/contact', function (request, response) {
+  sendHtmlFile(response, 'contact.html');
+});
 
 app.post('/', function (request, response) {
   console.log('headers: ' + JSON.stringify(request.headers));
