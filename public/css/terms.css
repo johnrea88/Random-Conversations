@@ -1,0 +1,82 @@
+
+    .page-body{
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin-top: 0px;
+        position: absolute;
+        background-color: #FFF;
+        text-align: center;
+    }
+
+    .copy{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        text-align: center; 
+        padding-top: 2%; 
+        color: #141414;
+    }
+
+    .copy-header{
+        font-size: 48px;
+        font-family: 'Montserrat';
+        width: auto;
+        margin-left: 25%;
+        text-align: center;
+        width: 50%;
+
+
+    }
+
+    .copy-body{
+        position: absolute;
+        font-size: 16px;
+        font-family: 'Lato';
+        text-align: left;
+        margin-left: 20%;
+        height: auto;
+        width: 60%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+
+    .page-footer{
+        display: inline-block;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        height: 50px;
+        line-height: 50px;
+        text-align: left;
+        background-color: #666666;
+        color: #FFF;
+        font-family: 'Montserrat';
+        font-size: 11px;
+    }
+
+    .links{
+        margin-left: 25px;
+        width: auto;
+    }
+
+    .nav-link{
+        float: left;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #FFF;
+    }
+
+    .copyright{
+        display: inline-block;
+        float: right;
+        color: #FFF;
+        margin-right: 45px;
+    }

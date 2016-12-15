@@ -1,0 +1,155 @@
+
+    .page-body{
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin-top: 0px;
+        background-color: #FFF;
+        text-align: center;
+        display: block;
+    }
+
+    .copy{
+        height: 100%;
+        width: 100%;
+        text-align: center; 
+        padding-top: 20px; 
+        color: #141414;
+        position: inherit;
+    }
+
+    .copy-header{
+        font-size: 48px;
+        font-family: 'Montserrat';
+        width: auto;
+        margin-left: 25%;
+        text-align: center;
+        width: 50%;
+    }
+
+    .copy-body{
+        font-size: 20px;
+        font-family: 'Lato';
+        text-align: center;
+        margin-left: 20%;
+        height: auto;
+        width: 60%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .bios{
+        position: inherit;
+        height: 100%;
+        width: 100%;
+        text-align: center; 
+        padding-top: 50px; 
+        color: #141414;
+    }
+
+    .bio-header{
+        font-size: 48px;
+        font-family: 'Montserrat';
+        width: auto;
+        margin-left: 25%;
+        text-align: center;
+        width: 50%;
+    }
+
+    .bio-body{
+        font-size: 20px;
+        font-family: 'Lato';
+        text-align: center;
+        margin-left: 20%;
+        height: auto;
+        width: 60%;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .linkedin{
+        position: inherit;
+        display: block;
+        height: 100%;
+        width: auto;
+        text-align: center; 
+        color: #141414;
+        font-family: 'Lato';  
+        font-size: 20px;     
+    }
+
+    .name-link{
+        display: inline-block;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .name{
+        display: inline-block;
+        margin-right: 15px;
+    }
+
+    .jordan-link{
+        display: inline-block;
+        text-decoration: none;
+        color: #141414;
+        vertical-align: middle;
+    }
+
+    .john-link{
+        display: inline-block;
+        text-decoration: none;
+        color: #141414;
+        vertical-align: middle;
+    }
+
+    .linkedin-icon{
+        height: 20px;
+        width: 20px;
+    }
+
+    .twitter-icon{
+        height: 20px;
+        width: 20px;
+        margin-left: 7px;
+    }
+
+    .page-footer{
+        display: inline-block;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+        height: 50px;
+        line-height: 50px;
+        text-align: left;
+        background-color: #666666;
+        color: #FFF;
+        font-family: 'Montserrat';
+        font-size: 11px;
+    }
+
+    .links{
+        margin-left: 25px;
+        width: auto;
+    }
+
+    .nav-link{
+        float: left;
+        display: inline-block;
+        margin-left: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #FFF;
+    }
+
+
+    .copyright{
+        display: inline-block;
+        float: right;
+        color: #FFF;
+        margin-right: 45px;
+    }
